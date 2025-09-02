@@ -271,7 +271,7 @@ install_xcaddy() {
 install_caddy() {
     # download caddy file then install
     mkdir /root/src && cd /root/src/
-    go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.1
+    go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
     ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive
     cp caddy /usr/bin/
     /usr/bin/caddy version        # 2022-4-8 23:09
@@ -425,7 +425,7 @@ config() {
     mkdir /etc/caddy/
     mkdir /var/www/ -p
 
-    wget -c https://raw.githubusercontent.com/imajeason/nas_tools/main/NaiveProxy/html.tar.gz -O - | tar -xz -C /var/www/
+    wget -c https://raw.githubusercontent.com/zhangyingui8/naive_tools/main/NaiveProxy/html.tar.gz -O - | tar -xz -C /var/www/
     # 生成密码
     # /etc/letsencrypt/live/x.dongvps.com/
 
@@ -701,7 +701,7 @@ install() {
             [[ $(command -v apache2) ]] && apt-get remove apache2* -y
         fi
     fi
-    install_caddy
+    install_xcaddy
 
     ## bbr
     # _load bbr.sh
@@ -758,7 +758,7 @@ show_cert(){
 }
 
 optimize(){
-    curl https://raw.githubusercontent.com/imajeason/nas_tools/main/NaiveProxy/optimize.sh | bash -
+    curl https://raw.githubusercontent.com/zhangyingui8/naive_tools/main/NaiveProxy/optimize.sh | bash -
     curl https://github.com/teddysun/across/raw/master/bbr.sh | bash -
 
 }
@@ -775,7 +775,7 @@ cert_renew(){
 }
 
 shell_renew(){
-    curl -o /root/.naive.sh https://raw.githubusercontent.com/imajeason/nas_tools/main/NaiveProxy/naive.sh 
+    curl -o /root/.naive.sh https://raw.githubusercontent.com/zhangyingui8/naive_tools/main/NaiveProxy/naive.sh 
     chmod +x /root/.naive.sh
     echo
     echo -e "$red naive更新完成，请重新执行naive $none"
