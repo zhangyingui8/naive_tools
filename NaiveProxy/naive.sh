@@ -262,7 +262,7 @@ install_xcaddy() {
     wget https://github.com/klzgrad/forwardproxy/releases/download/v2.10.0-naive/caddy-forwardproxy-naive.tar.xz
     tar xvf caddy-forwardproxy-naive.tar.xz 
     systemctl stop naive
-    \cp caddy-forwardproxy-naive/caddy /usr/bin/
+    cp caddy-forwardproxy-naive/caddy /usr/bin/
     /usr/bin/caddy version        # 2022-4-8 23:09
     #v2.4.6 h1:HGkGICFGvyrodcqOOclHKfvJC0qTU7vny/7FhYp9hNw=  
     setcap cap_net_bind_service=+ep /usr/bin/caddy  # 设置bind权限，可443
