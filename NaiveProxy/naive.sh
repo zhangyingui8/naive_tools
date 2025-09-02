@@ -259,7 +259,7 @@ install_caddy() {
     cd /root/src/
     rm caddy-forwardproxy-naive.tar.xz
     #wget https://github.com/klzgrad/forwardproxy/releases/download/v2.7.5-caddy2-naive2/caddy-forwardproxy-naive.tar.xz
-    wget https://github.com/klzgrad/forwardproxy/releases/tag/v2.10.0-naive/caddy-forwardproxy-naive.tar.xz
+    wget https://github.com/klzgrad/forwardproxy/releases/download/v2.10.0-naive/caddy-forwardproxy-naive.tar.xz
     tar xvf caddy-forwardproxy-naive.tar.xz 
     systemctl stop naive
     \cp caddy-forwardproxy-naive/caddy /usr/bin/
