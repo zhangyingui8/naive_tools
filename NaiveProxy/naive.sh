@@ -628,8 +628,8 @@ update_caddy() {
     # edit_config
     # export GOROOT=/usr/local/go
     # export PATH=$GOROOT/bin:$PATH
-    install_caddy
-
+    #install_caddy
+    install_xcaddy
     ## bbr
     # _load bbr.sh
     # _try_enable_bbr
