@@ -253,7 +253,7 @@ install_go() {
     fi
 }
 
-install_caddy() {
+install_xcaddy() {
     # download caddy file then install
     mkdir /root/src 
     cd /root/src/
@@ -268,6 +268,16 @@ install_caddy() {
     setcap cap_net_bind_service=+ep /usr/bin/caddy  # 设置bind权限，可443
 }
 
+install_caddy() {
+    # download caddy file then install
+    mkdir /root/src && cd /root/src/
+    go install github.com/caddyserver/xcaddy/cmd/xcaddy@v0.3.1
+    ~/go/bin/xcaddy build --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive
+    cp caddy /usr/bin/
+    /usr/bin/caddy version        # 2022-4-8 23:09
+    #v2.4.6 h1:HGkGICFGvyrodcqOOclHKfvJC0qTU7vny/7FhYp9hNw=  
+    setcap cap_net_bind_service=+ep /usr/bin/caddy  # 设置bind权限，可443
+}
 
 install_certbot() {
     grep "Emerald Puma" /etc/os-release
